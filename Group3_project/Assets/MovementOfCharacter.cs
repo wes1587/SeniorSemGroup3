@@ -4,19 +4,54 @@ using UnityEngine;
 
 public class MovementOfCharacter : MonoBehaviour
 {
-float Speed = 5;
- 
-void Update()
-{
-    
- 
-    if (Input.GetKey("right"))
+    //Movement
+    public float speed;
+    public float jump;
+    public float totalJumps;
+    float moveVelocity = 0;
+    float numJumped;
+
+    //Grounded Vars
+    bool isGrounded = true;
+
+    void Update () 
     {
-        transform.position += transform.right * Speed * Time.deltaTime;
+         //Jumping
+        if (Input.GetKeyDown (KeyCode.Space) || Input.GetKeyDown (KeyCode.UpArrow) || Input.GetKeyDown (KeyCode.Z) || Input.GetKeyDown (KeyCode.W)) 
+        {
+            if(isGrounded || numJumped < totalJumps)
+            {
+                GetComponent<Rigidbody> ().velocity = new Vector2 (GetComponent<Rigidbody> ().velocity.x, jump);
+                isGrounded = false;
+                numJumped = numJumped + 1;
+            }
+        }
+
+        moveVelocity = 0;
+
+        //Left Right Movement
+        if (Input.GetKey (KeyCode.LeftArrow) || Input.GetKey (KeyCode.A)) 
+        {
+             moveVelocity = -speed;
+        }
+        if (Input.GetKey (KeyCode.RightArrow) || Input.GetKey (KeyCode.D)) 
+        {
+            moveVelocity = speed;
+        }
+        else
+        {
+            if(moveVelocity > 0){
+                moveVelocity--;
+            }
+        }
+
+        GetComponent<Rigidbody> ().velocity = new Vector2 (moveVelocity, GetComponent<Rigidbody> ().velocity.y);
     }
-    else if (Input.GetKey("left"))
+
+    //Check if Grounded
+     void OnCollisionEnter(Collision other)
     {
-        transform.position -= transform.right * Speed * Time.deltaTime;
+        isGrounded = true;
+        numJumped = 0;
     }
-}
 }
