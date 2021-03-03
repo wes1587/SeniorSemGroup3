@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class GravityPuzzlePart : MonoBehaviour
 {
+     public float spellDuration;
+    private float spellTempTime = 0f;
+
 
     // Start is called before the first frame update
     void Start()
@@ -14,7 +17,10 @@ public class GravityPuzzlePart : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(spellTempTime == 0){
+            GetComponent<Rigidbody>().useGravity = true;
+        }
+        spellTempTime -= Time.deltaTime;
     }
 
     //update gravity if hit by gravity spell
@@ -22,7 +28,9 @@ public class GravityPuzzlePart : MonoBehaviour
         if(other.gameObject.name == "Player");
         {
             GetComponent<Rigidbody>().useGravity = false;
-            GetComponent<Rigidbody>().velocity = new Vector2 (GetComponent<Rigidbody> ().velocity.x, -Physics.gravity.y);    
+            GetComponent<Rigidbody>().velocity = new Vector2 (GetComponent<Rigidbody> ().velocity.x, -Physics.gravity.y);
+             spellTempTime = spellDuration;   
+            GetComponent<Rigidbody>().useGravity = true;
         }
     }
 }
