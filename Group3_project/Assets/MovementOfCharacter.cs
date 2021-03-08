@@ -8,19 +8,21 @@ public class MovementOfCharacter : MonoBehaviour
     public float speed;
     public float jump;
     public float totalJumps;
-    float moveVelocity = 0;
+    float moveVelocity = 0f;
     float numJumped;
-
-    //Grounded Vars
+    float distToGround;
     bool isGrounded = true;
 
-    void Update () 
-    {
-         //Jumping
-        if (Input.GetKeyDown (KeyCode.Space) || Input.GetKeyDown (KeyCode.UpArrow) || Input.GetKeyDown (KeyCode.Z) || Input.GetKeyDown (KeyCode.W)) 
-        {
-            if(isGrounded || numJumped < totalJumps)
-            {
+    void Start(){
+        // gets the distance from players center to feet
+        distToGround = GetComponent<Collider>().bounds.extents.y;
+    }
+
+    void Update (){
+        isGroundedUpdate();
+        //Jumping?
+        if (Input.GetKeyDown (KeyCode.Space) || Input.GetKeyDown (KeyCode.UpArrow) || Input.GetKeyDown (KeyCode.Z) || Input.GetKeyDown (KeyCode.W)) {
+            if(isGrounded || numJumped < totalJumps){
                 GetComponent<Rigidbody> ().velocity = new Vector2 (GetComponent<Rigidbody> ().velocity.x, jump);
                 isGrounded = false;
                 numJumped = numJumped + 1;
@@ -29,29 +31,30 @@ public class MovementOfCharacter : MonoBehaviour
 
         moveVelocity = 0;
 
-        //Left Right Movement
-        if (Input.GetKey (KeyCode.LeftArrow) || Input.GetKey (KeyCode.A)) 
-        {
+        //Left Right Movement?
+        if (Input.GetKey (KeyCode.LeftArrow) || Input.GetKey (KeyCode.A)) {
              moveVelocity = -speed;
         }
-        if (Input.GetKey (KeyCode.RightArrow) || Input.GetKey (KeyCode.D)) 
-        {
+        if (Input.GetKey (KeyCode.RightArrow) || Input.GetKey (KeyCode.D)) {
             moveVelocity = speed;
         }
-        else
-        {
+        else{
             if(moveVelocity > 0){
                 moveVelocity--;
             }
         }
-
+        //actually move
         GetComponent<Rigidbody> ().velocity = new Vector2 (moveVelocity, GetComponent<Rigidbody> ().velocity.y);
     }
 
     //Check if Grounded
-     void OnCollisionEnter(Collision other)
-    {
-        isGrounded = true;
-        numJumped = 0;
+     public void isGroundedUpdate() {
+        if(Physics.Raycast(transform.position, -Vector3.up, distToGround+ 0.1f)){
+            isGrounded = true;
+            numJumped = 0;
+        }
+        else{
+            isGrounded = false;
+        }
     }
 }
