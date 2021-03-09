@@ -12,15 +12,17 @@ public class GateTrigger : MonoBehaviour
     {
         if (!isOpen)
         {
-            gate.transform.position += new Vector3(0, 4, 0);
+            isOpen = true;
+            gate.transform.position += new Vector3(0, -12, 0);
         }
 
     }
-    void OffTriggerExit(Collider col)
+    void OnTriggerExit(Collider col)
     {
-        if (!isOpen)
+        if (isOpen)
         {
-            gate.transform.position += new Vector3(0, -4, 0);
+            isOpen = false;
+            gate.transform.position += new Vector3(0, 12, 0);
         }
     }
 }
