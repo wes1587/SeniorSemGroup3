@@ -12,10 +12,24 @@ public class MovementOfCharacter : MonoBehaviour
     float numJumped;
     float distToGround;
     bool isGrounded = true;
+    public  AudioSource JumpAudioSource;
+    public  AudioSource LandAudioSource;
+
+
 
     void Start(){
         // gets the distance from players center to feet
         distToGround = GetComponent<Collider>().bounds.extents.y;
+    }
+    
+    public void PlayJumpSound()
+    {
+        JumpAudioSource.Play();
+    }
+
+    public void PlayLandSound()
+    {
+        LandAudioSource.Play();
     }
 
     void Update (){
@@ -23,6 +37,7 @@ public class MovementOfCharacter : MonoBehaviour
         //Jumping?
         if (Input.GetKeyDown (KeyCode.Space) || Input.GetKeyDown (KeyCode.UpArrow) || Input.GetKeyDown (KeyCode.Z) || Input.GetKeyDown (KeyCode.W)) {
             if(isGrounded || numJumped < totalJumps){
+                PlayJumpSound();
                 GetComponent<Rigidbody> ().velocity = new Vector2 (GetComponent<Rigidbody> ().velocity.x, jump);
                 isGrounded = false;
                 numJumped = numJumped + 1;
@@ -30,10 +45,10 @@ public class MovementOfCharacter : MonoBehaviour
         }
 
         moveVelocity = 0;
-
+        
         //Left Right Movement?
         if (Input.GetKey (KeyCode.LeftArrow) || Input.GetKey (KeyCode.A)) {
-             moveVelocity = -speed;
+            moveVelocity = -speed;
         }
         if (Input.GetKey (KeyCode.RightArrow) || Input.GetKey (KeyCode.D)) {
             moveVelocity = speed;
@@ -45,6 +60,8 @@ public class MovementOfCharacter : MonoBehaviour
         }
         //actually move
         GetComponent<Rigidbody> ().velocity = new Vector2 (moveVelocity, GetComponent<Rigidbody> ().velocity.y);
+        if (distToGround > 0.1 && isGrounded == false)
+            PlayLandSound();
     }
 
     //Check if Grounded
@@ -57,4 +74,5 @@ public class MovementOfCharacter : MonoBehaviour
             isGrounded = false;
         }
     }
+
 }
