@@ -14,6 +14,7 @@ public class MovementOfCharacter : MonoBehaviour
     bool isGrounded = true;
     public  AudioSource JumpAudioSource;
     public  AudioSource LandAudioSource;
+    
 
 
 
@@ -31,6 +32,8 @@ public class MovementOfCharacter : MonoBehaviour
     {
         LandAudioSource.Play();
     }
+
+    
 
     void Update (){
         isGroundedUpdate();
