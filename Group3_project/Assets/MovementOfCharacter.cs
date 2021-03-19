@@ -12,10 +12,12 @@ public class MovementOfCharacter : MonoBehaviour
     float numJumped;
     float distToGround;
     bool isGrounded = true;
+    public Animator anim;
 
     void Start(){
         // gets the distance from players center to feet
         distToGround = GetComponent<Collider>().bounds.extents.y;
+        anim = GetComponent<Animator>();
     }
 
     void Update (){
@@ -37,6 +39,10 @@ public class MovementOfCharacter : MonoBehaviour
         }
         if (Input.GetKey (KeyCode.RightArrow) || Input.GetKey (KeyCode.D)) {
             moveVelocity = speed;
+            anim.SetBool("Walking",true);
+        }
+        if (!(Input.GetKey (KeyCode.RightArrow) || Input.GetKey (KeyCode.D))){
+            anim.SetBool("Walking",false);   
         }
         else{
             if(moveVelocity > 0){
