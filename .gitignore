@@ -1,0 +1,6 @@
+# Ignore Mac directory info 
+.DS_Store
+
+# Ignore Log Files 
+*.log 
+**/*.log
