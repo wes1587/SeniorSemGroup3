@@ -15,10 +15,10 @@ public class DeathZone : MonoBehaviour
 
     void OnCollisionEnter(){
         int number = Random.Range(0, 1);
-        if (number == 1)
-            DeathSound1.Play();
-        else
-            DeathSound2.Play();
+        if (number == 1){}
+            //DeathSound1.Play();
+        else{}
+            //DeathSound2.Play();
         player.transform.position = new Vector3(-8,1,5);
     }
 }

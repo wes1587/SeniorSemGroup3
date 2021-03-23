@@ -26,9 +26,9 @@ public class MovementOfCharacter : MonoBehaviour
     void Update (){
         isGroundedUpdate();
         //Jumping?
-        if (Input.GetKeyDown (KeyCode.Space) || Input.GetKeyDown (KeyCode.UpArrow) || Input.GetKeyDown (KeyCode.Z) || Input.GetKeyDown (KeyCode.W)) {
+        if (Input.GetKeyDown (KeyCode.Space) || Input.GetKeyDown (KeyCode.UpArrow) || Input.GetKeyDown (KeyCode.W)) {
             if(isGrounded || numJumped < totalJumps){
-                PlayerJump.Play();
+                //PlayerJump.Play();
                 GetComponent<Rigidbody> ().velocity = new Vector2 (GetComponent<Rigidbody> ().velocity.x, jump);
                 isGrounded = false;
                 numJumped = numJumped + 1;
@@ -70,8 +70,8 @@ public class MovementOfCharacter : MonoBehaviour
     //Collision check/Distance to ground check, to play Landing Sound
     void OnCollisionEnter (Collision col)
     {
-        if (col.gameObject.name == "Ground" && distToGround > 0.1)
-            PlayerLand.Play();
+        if (col.gameObject.name == "Ground" && distToGround > 0.1){}
+            //PlayerLand.Play();
     }
     
     
