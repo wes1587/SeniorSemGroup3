@@ -14,13 +14,20 @@ public class MovementOfCharacter : MonoBehaviour
     bool isGrounded = true;
     public Animator anim;
     //Audio
-    public AudioSource PlayerJump;
-    public AudioSource PlayerLand;
+    public AudioClip jumpSound;
+    public AudioClip landSound;
+    public AudioClip[] audioList;
 
     void Start(){
         // gets the distance from players center to feet
         distToGround = GetComponent<Collider>().bounds.extents.y;
         anim = GetComponent<Animator>();
+        //Audio
+        AudioSource audio = GetComponent<AudioSource>();
+        audioList = new AudioClip[]{(AudioClip) Resources.Load("Player_Jump"),
+                                    (AudioClip) Resources.Load("Player_Land_Jump") };
+        jumpSound = audioList[0];
+        landSound = audioList[1];
     }
 
     void Update (){
@@ -28,7 +35,8 @@ public class MovementOfCharacter : MonoBehaviour
         //Jumping?
         if (Input.GetKeyDown (KeyCode.Space) || Input.GetKeyDown (KeyCode.UpArrow) || Input.GetKeyDown (KeyCode.W)) {
             if(isGrounded || numJumped < totalJumps){
-                //PlayerJump.Play();
+                GetComponent<AudioSource>().clip = jumpSound;
+                GetComponent<AudioSource>().Play();
                 GetComponent<Rigidbody> ().velocity = new Vector2 (GetComponent<Rigidbody> ().velocity.x, jump);
                 isGrounded = false;
                 numJumped = numJumped + 1;
@@ -70,8 +78,11 @@ public class MovementOfCharacter : MonoBehaviour
     //Collision check/Distance to ground check, to play Landing Sound
     void OnCollisionEnter (Collision col)
     {
-        if (col.gameObject.name == "Ground" && distToGround > 0.1){}
-            //PlayerLand.Play();
+        if (col.gameObject.name == "Ground" && distToGround > 0.1){
+            GetComponent<AudioSource>().clip = landSound;
+            GetComponent<AudioSource>().Play();
+        }
+        
     }
     
     
