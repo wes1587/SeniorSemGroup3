@@ -9212,7 +9212,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1568186189}
+  Cpuzzle: {fileID: 1568186189}
   offset: {x: 1, y: 10, z: -30}
+  spellActive: 0
 --- !u!82 &1231074981
 AudioSource:
   m_ObjectHideFlags: 0
