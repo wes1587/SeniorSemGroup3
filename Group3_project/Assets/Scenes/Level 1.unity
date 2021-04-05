@@ -1062,8 +1062,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1568186185}
-  death1: {fileID: 0}
-  death2: {fileID: 0}
+  death1: {fileID: 8300000, guid: 5b385f38505b43541912f651a55eac20, type: 3}
+  death2: {fileID: 8300000, guid: 193ba3a9650a8f1468c08a8522fc0944, type: 3}
   audioList: []
 --- !u!65 &75728876
 BoxCollider:
@@ -4839,9 +4839,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50750f1e00906c040ac48cb54e8ee7f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  death1: {fileID: 0}
-  death2: {fileID: 0}
+  player: {fileID: 1568186185}
+  death1: {fileID: 8300000, guid: 5b385f38505b43541912f651a55eac20, type: 3}
+  death2: {fileID: 8300000, guid: 193ba3a9650a8f1468c08a8522fc0944, type: 3}
   audioList: []
 --- !u!65 &560552541
 BoxCollider:
@@ -8845,9 +8845,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50750f1e00906c040ac48cb54e8ee7f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  death1: {fileID: 0}
-  death2: {fileID: 0}
+  player: {fileID: 1568186185}
+  death1: {fileID: 8300000, guid: 5b385f38505b43541912f651a55eac20, type: 3}
+  death2: {fileID: 8300000, guid: 193ba3a9650a8f1468c08a8522fc0944, type: 3}
   audioList: []
 --- !u!65 &1179745288
 BoxCollider:
@@ -10271,8 +10271,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1568186185}
-  death1: {fileID: 0}
-  death2: {fileID: 0}
+  death1: {fileID: 8300000, guid: 5b385f38505b43541912f651a55eac20, type: 3}
+  death2: {fileID: 8300000, guid: 193ba3a9650a8f1468c08a8522fc0944, type: 3}
   audioList: []
 --- !u!65 &1330058912
 BoxCollider:
@@ -11764,9 +11764,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50750f1e00906c040ac48cb54e8ee7f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  death1: {fileID: 0}
-  death2: {fileID: 0}
+  player: {fileID: 1568186185}
+  death1: {fileID: 8300000, guid: 5b385f38505b43541912f651a55eac20, type: 3}
+  death2: {fileID: 8300000, guid: 193ba3a9650a8f1468c08a8522fc0944, type: 3}
   audioList: []
 --- !u!65 &1543848033
 BoxCollider:
@@ -12156,9 +12156,9 @@ MonoBehaviour:
   speed: 10
   jump: 10
   totalJumps: 2
-  anim: {fileID: 0}
-  jumpSound: {fileID: 0}
-  landSound: {fileID: 0}
+  anim: {fileID: 1568186192}
+  jumpSound: {fileID: 8300000, guid: 3ec1cb54976fe7a43abeb098dc2a6d10, type: 3}
+  landSound: {fileID: 8300000, guid: 63a6c062bd2d68848aabfab65f10594b, type: 3}
   audioList: []
 --- !u!136 &1568186187
 CapsuleCollider:
@@ -14735,8 +14735,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1568186185}
-  death1: {fileID: 0}
-  death2: {fileID: 0}
+  death1: {fileID: 8300000, guid: 5b385f38505b43541912f651a55eac20, type: 3}
+  death2: {fileID: 8300000, guid: 193ba3a9650a8f1468c08a8522fc0944, type: 3}
   audioList: []
 --- !u!65 &1826290036
 BoxCollider:
@@ -16377,8 +16377,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1568186185}
-  death1: {fileID: 0}
-  death2: {fileID: 0}
+  death1: {fileID: 8300000, guid: 5b385f38505b43541912f651a55eac20, type: 3}
+  death2: {fileID: 8300000, guid: 193ba3a9650a8f1468c08a8522fc0944, type: 3}
   audioList: []
 --- !u!82 &2030151330
 AudioSource:
