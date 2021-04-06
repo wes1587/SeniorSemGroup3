@@ -3490,8 +3490,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee18d0e2400cc934cb9ea6bb96f8b857, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  jump: 10
+  speed: 30
+  jump: 30
   totalJumps: 2
   canMove: 0
 --- !u!65 &398763429
@@ -7367,8 +7367,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a4a15bdec782664aa3131525b09f473, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  jump: 10
+  speed: 30
+  jump: 30
   totalJumps: 1
   anim: {fileID: 886653254}
   jumpSound: {fileID: 0}

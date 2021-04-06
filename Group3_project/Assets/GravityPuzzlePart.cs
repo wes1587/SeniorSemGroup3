@@ -20,11 +20,11 @@ public class GravityPuzzlePart : MonoBehaviour
     {
         if(!isActive){
             GetComponent<Rigidbody>().useGravity = true;
-            GetComponent<Rigidbody>().velocity = new Vector2 (GetComponent<Rigidbody>().velocity.x, Physics.gravity.y);
+            GetComponent<Rigidbody>().velocity = new Vector2 (GetComponent<Rigidbody>().velocity.x, 10);
         }
         else{
             GetComponent<Rigidbody>().useGravity = false;
-            GetComponent<Rigidbody>().velocity = new Vector2 (GetComponent<Rigidbody>().velocity.x, -Physics.gravity.y);
+            GetComponent<Rigidbody>().velocity = new Vector2 (GetComponent<Rigidbody>().velocity.x, -10);
         }
 
         if (Input.GetKeyDown (KeyCode.Q)) {

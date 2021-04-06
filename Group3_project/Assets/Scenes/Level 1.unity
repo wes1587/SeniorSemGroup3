@@ -4682,7 +4682,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 1678cad0d65c72f45b6aebd0114b1b51,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 45.741272
+      value: 47.4
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1678cad0d65c72f45b6aebd0114b1b51,
         type: 3}
@@ -5243,8 +5243,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 640411535}
   m_LocalRotation: {x: -0, y: -0, z: -0.38268343, w: 0.92387956}
-  m_LocalPosition: {x: 0.08940003, y: 12, z: 0}
-  m_LocalScale: {x: 0.007936507, y: 0.1388889, z: 1}
+  m_LocalPosition: {x: 0.0891, y: 12.04, z: 0.07}
+  m_LocalScale: {x: 0.007936507, y: 0.139, z: 1}
   m_Children: []
   m_Father: {fileID: 1610173972}
   m_RootOrder: 11
@@ -5578,7 +5578,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff8ce9de7bf2240c89eaf7053872d3c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runSpeed: 14
+  runSpeed: 20
   walkSpeed: 4
   groundLayer:
     serializedVersion: 2
@@ -6739,17 +6739,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: a5ed8a7031d36447289b76a49d5c2b3e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.94
+      value: 514.3
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a5ed8a7031d36447289b76a49d5c2b3e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.02
+      value: 19.2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a5ed8a7031d36447289b76a49d5c2b3e,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.89
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a5ed8a7031d36447289b76a49d5c2b3e,
         type: 3}
@@ -9047,7 +9047,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 1678cad0d65c72f45b6aebd0114b1b51,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 45.741272
+      value: 47.47
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1678cad0d65c72f45b6aebd0114b1b51,
         type: 3}
@@ -10545,7 +10545,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50750f1e00906c040ac48cb54e8ee7f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1568186185}
+  player: {fileID: 687222766}
   death1: {fileID: 8300000, guid: 5b385f38505b43541912f651a55eac20, type: 3}
   death2: {fileID: 8300000, guid: 193ba3a9650a8f1468c08a8522fc0944, type: 3}
   audioList: []
@@ -14903,7 +14903,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50750f1e00906c040ac48cb54e8ee7f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1568186185}
+  player: {fileID: 687222766}
   death1: {fileID: 8300000, guid: 5b385f38505b43541912f651a55eac20, type: 3}
   death2: {fileID: 8300000, guid: 193ba3a9650a8f1468c08a8522fc0944, type: 3}
   audioList: []
@@ -15737,7 +15737,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 1678cad0d65c72f45b6aebd0114b1b51,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 45.741272
+      value: 47.25
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1678cad0d65c72f45b6aebd0114b1b51,
         type: 3}
@@ -16165,9 +16165,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1986598481}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a37e585d42625c478a4759bf0512a09, type: 3}
+  m_Script: {fileID: 11500000, guid: 063773423e48b82469e046ff3e2f356d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audio: {fileID: 0}
 --- !u!82 &1986598487
 AudioSource:
   m_ObjectHideFlags: 0
@@ -16545,7 +16546,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50750f1e00906c040ac48cb54e8ee7f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1568186185}
+  player: {fileID: 687222766}
   death1: {fileID: 8300000, guid: 5b385f38505b43541912f651a55eac20, type: 3}
   death2: {fileID: 8300000, guid: 193ba3a9650a8f1468c08a8522fc0944, type: 3}
   audioList: []
