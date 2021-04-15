@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour{
+public class PlayerController : MonoBehaviour
+{
 
     //movement variables
     public float runSpeed;
@@ -11,9 +12,11 @@ public class PlayerController : MonoBehaviour{
     Animator myAnim;
     GameObject rightFoot;
     GameObject checkGround;
+    float distToGround;
 
     bool facingRight;
     // for jumping
+    bool isGrounded = true;
     bool grounded = false;
     Collider[] groundCollisions;
     float groundCheckRadius = 0.2f;
@@ -21,6 +24,10 @@ public class PlayerController : MonoBehaviour{
     public Transform groundCheck;
     public float jumpHeight;
     bool canDoubleJump;
+    //Audio
+     AudioClip jumpSound;
+     AudioClip landSound;
+     AudioClip[] audioList;
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +37,13 @@ public class PlayerController : MonoBehaviour{
         facingRight = true;
         rightFoot = GameObject.Find("mixamorig:RightFoot");
         checkGround = GameObject.Find("checkGroundLocation");
+        distToGround = GetComponent<Collider>().bounds.extents.y;
+        //Audio
+        AudioSource audio = GetComponent<AudioSource>();
+        audioList = new AudioClip[]{(AudioClip) Resources.Load("Player_Jump"),
+                                    (AudioClip) Resources.Load("Player_Land_Jump") };
+        jumpSound = audioList[0];
+        landSound = audioList[1];
 
     }
 
@@ -37,6 +51,7 @@ public class PlayerController : MonoBehaviour{
     void Update()
     {
         //checkGround.transform.position = rightFoot.transform.position;
+        isGroundedUpdate();
     }
 
 
@@ -51,15 +66,19 @@ public class PlayerController : MonoBehaviour{
         }
         else
         {
-           
+
 
         }
-        if (Input.GetKey(KeyCode.Space)) {
-            if (grounded) {
+        if (Input.GetKey(KeyCode.Space))
+        {
+            if (grounded)
+            {
                 grounded = false;
+                GetComponent<AudioSource>().clip = jumpSound;
+                GetComponent<AudioSource>().Play();
                 myAnim.SetBool("grounded", grounded);
                 myRB.AddForce(new Vector3(0, jumpHeight, 0));
-                
+
 
             }
             else
@@ -70,6 +89,8 @@ public class PlayerController : MonoBehaviour{
                     if (canDoubleJump)
                     {
                         grounded = false;
+                        GetComponent<AudioSource>().clip = jumpSound;
+                        GetComponent<AudioSource>().Play();
                         myAnim.SetBool("grounded", grounded);
                         myRB.AddForce(new Vector3(0, jumpHeight + jumpHeight, 0));
                         canDoubleJump = false;
@@ -77,9 +98,9 @@ public class PlayerController : MonoBehaviour{
 
                 }
             }
-        
+
         }
-       
+
 
         groundCollisions = Physics.OverlapSphere(groundCheck.position, groundCheckRadius, groundLayer);
         if (groundCollisions.Length > 0)
@@ -106,15 +127,16 @@ public class PlayerController : MonoBehaviour{
         {
             myRB.velocity = new Vector3(move * walkSpeed, myRB.velocity.y, 0);
         }
-        else {
+        else
+        {
             myRB.velocity = new Vector3(move * runSpeed, myRB.velocity.y, 0);
         }
 
-        if (move>0 && !facingRight)
+        if (move > 0 && !facingRight)
         {
             Flip();
         }
-        else if ( move< 0  && facingRight)
+        else if (move < 0 && facingRight)
         {
             Flip();
         }
@@ -126,6 +148,29 @@ public class PlayerController : MonoBehaviour{
         Vector3 theScale = transform.localScale;
         theScale.z *= -1;
         transform.localScale = theScale;
+
+    }
+
+    public void isGroundedUpdate()
+    {
+        if (Physics.Raycast(transform.position, -Vector3.up, distToGround + 0.1f))
+        {
+            isGrounded = true;
+        }
+        else
+        {
+            isGrounded = false;
+        }
+    }
+
+    //Collision check/Distance to ground check, to play Landing Sound
+    void OnCollisionEnter(Collision col)
+    {
+        if (col.gameObject.name == "Ground" && distToGround > 0.1)
+        {
+            GetComponent<AudioSource>().clip = landSound;
+            GetComponent<AudioSource>().Play();
+        }
 
     }
 }
