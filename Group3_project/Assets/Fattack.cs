@@ -8,11 +8,21 @@ public class Fattack : MonoBehaviour
     public Transform fireBallPos;
     public float fireBallSpeed = 600;
     public int damage = 10;
+    public AudioSource fireballAudioSource;
+    AudioClip fireBallSound;
+
+    void Start()
+    {
+        fireballAudioSource = GetComponent<AudioSource>();
+        fireBallSound = (AudioClip)Resources.Load("Fireball");
+    }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.F))
         {
+            GetComponent<AudioSource>().clip = fireBallSound;
+            GetComponent<AudioSource>().Play();
             Fthrow();
         }
     }
