@@ -4,16 +4,24 @@ using UnityEngine;
 
 public class CloudsScript : MonoBehaviour
 {
-    private float speed = 2;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private float _speed;
+    private float _endPosX;
 
-    // Update is called once per frame
+    
     void Update()
     {
-        transform.Translate(Vector3.right * (Time.deltaTime * speed));
+        transform.Translate(Vector3.right * (Time.deltaTime * _speed));
+
+        if( transform.position.x > _endPosX) //this if is used to destroy the cloud
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    public void StartFloating(float speed, float endPosX)
+    {
+
+        _speed = speed;
+        _endPosX = endPosX;
     }
 }
