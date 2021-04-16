@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//https://www.youtube.com/watch?v=DvAmw-YXrG0&t=21s
+//video tutorial used for the clouds generator
+
 public class CloudGeneratorScript : MonoBehaviour
 {
     [SerializeField]
@@ -15,14 +18,16 @@ public class CloudGeneratorScript : MonoBehaviour
 
     Vector3 startPos;
 
-    // Start is called before the first frame update
+    
     void Start()
     {
-        startPos = transform.position; //the transform position of this obejct is the start point
+        //the transform position of this obejct is the start point
+        startPos = transform.position;
 
-        Invoke("AttemptSpawn", spawnInterval);
         //when the object generator starts it is going to call this functions attempt spawn after the born interval
         //1.5 seconds, this invoke is slower but it is easier for begginers, there is no problem for small projects 
+        Invoke("AttemptSpawn", spawnInterval);
+        
     }
 
     void SpawnCloud()
@@ -30,7 +35,21 @@ public class CloudGeneratorScript : MonoBehaviour
         int randomIndex = UnityEngine.Random.Range(0, clouds.Length);
         GameObject cloud = Instantiate(clouds[randomIndex]);
 
-        cloud.transform.position = startPos;
+
+        //random the y position of clouds so it will look more natural
+        float startY = UnityEngine.Random.Range(startPos.y - 1f, startPos.y + 1);
+        cloud.transform.position = new Vector3(startPos.x,startY,startPos.z);
+
+        //random the size of the clouds
+        float scale = UnityEngine.Random.Range(0.8f, 1.5f);
+        cloud.transform.localScale = new Vector2(scale, scale);
+
+        //random speed 
+        float speed = UnityEngine.Random.Range(0.5f, 1.5f);
+        cloud.GetComponent<CloudsScript>().StartFloating(speed, endpoint.transform.position.x);
+
+        
+        
     }
 
     //instead of just calling this method, we can create a function which later allow us to check if the
