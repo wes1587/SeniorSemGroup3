@@ -37,7 +37,7 @@ public class CloudGeneratorScript : MonoBehaviour
 
 
         //random the y position of clouds so it will look more natural
-        float startY = UnityEngine.Random.Range(startPos.y - 1f, startPos.y + 1);
+        float startY = UnityEngine.Random.Range(startPos.y - 2f, startPos.y + 2);
         cloud.transform.position = new Vector3(startPos.x,startY,startPos.z);
 
         //random the size of the clouds
@@ -45,7 +45,7 @@ public class CloudGeneratorScript : MonoBehaviour
         cloud.transform.localScale = new Vector2(scale, scale);
 
         //random speed 
-        float speed = UnityEngine.Random.Range(0.5f, 1.5f);
+        float speed = UnityEngine.Random.Range(2.0f, 3.0f);
         cloud.GetComponent<CloudsScript>().StartFloating(speed, endpoint.transform.position.x);
 
         
@@ -57,5 +57,6 @@ public class CloudGeneratorScript : MonoBehaviour
     void AttemptSpawn()
     {
         SpawnCloud();
+        Invoke("AttemptSpawn", spawnInterval);
     }
 }
