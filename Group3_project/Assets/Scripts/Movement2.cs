@@ -4,98 +4,145 @@ using UnityEngine;
 
 public class Movement2 : MonoBehaviour
 {
-    //Movement
-    public float speed;
-    public float jump;
-    public float totalJumps;
-    float moveVelocity = 0f;
-    float numJumped;
-    float distToGround;
-    bool isGrounded = true;
-    public Animator anim;
-    //Audio
-    public AudioClip jumpSound;
-    public AudioClip landSound;
-    public AudioClip[] audioList;
-    //Control Spell
-    public bool canMove;
+ public float counter = 0;
+ public  float moveSpeed;
+ public  float walkSpeed;
+ public float runSpeed;
+ public  Vector3 moveDirection;
+ public  Vector3 velocity;
+ public  bool isGrounded;
+ public  float groundCheckDistance;
+ public  LayerMask groundMask; 
+ public float gravity;
+ public float jumpHeight;
+ //References
+ public CharacterController controller;
+ public Animator anim; 
+ // Controll bool
+ public bool canMove;
 
-    void Start(){
-        // gets the distance from players center to feet
-        distToGround = GetComponent<Collider>().bounds.extents.y;
-        anim = GetComponent<Animator>();
-        //Audio
-        AudioSource audio = GetComponent<AudioSource>();
-        audioList = new AudioClip[]{(AudioClip) Resources.Load("Player_Jump"),
-                                    (AudioClip) Resources.Load("Player_Land_Jump") };
-        jumpSound = audioList[0];
-        landSound = audioList[1];
+private void Start (){
+    controller = GetComponent<CharacterController>();
+    anim = GetComponentInChildren<Animator>();
+}
+private void Update (){
+    //control item stoof
+    if (Input.GetKeyDown (KeyCode.F)){
+        canMove = !canMove;
     }
 
-    void Update (){
-
-        //control item stoof
-        if (Input.GetKeyDown (KeyCode.F)){
-            canMove = !canMove;
+    //actually move
+    if(canMove){
+           Move();
+        if ( Input.GetKey("down")){
+            Attack();
         }
-
-        isGroundedUpdate();
-        //Jumping?
-        if (Input.GetKeyDown (KeyCode.Space) || Input.GetKeyDown (KeyCode.UpArrow) || Input.GetKeyDown (KeyCode.W)) {
-            if(isGrounded || numJumped < totalJumps){
-                GetComponent<AudioSource>().clip = jumpSound;
-                GetComponent<AudioSource>().Play();
-                if(canMove){
-                    GetComponent<Rigidbody> ().velocity = new Vector2 (GetComponent<Rigidbody> ().velocity.x, jump);
-                    isGrounded = false;
-                    numJumped = numJumped + 1;
-                }
-            }
+        if ( Input.GetKey("up")){
+            Jump2();
         }
-
-        moveVelocity = 0;
-
-        //Left Right Movement?
-        if (Input.GetKey (KeyCode.LeftArrow) || Input.GetKey (KeyCode.A)) {
-             moveVelocity = -speed;
-        }
-        if (Input.GetKey (KeyCode.RightArrow) || Input.GetKey (KeyCode.D)) {
-            moveVelocity = speed;
-            anim.SetBool("Walking",true);
-        }
-        if (!(Input.GetKey (KeyCode.RightArrow) || Input.GetKey (KeyCode.D))){
-            anim.SetBool("Walking",false);   
-        }
-        else{
-            if(moveVelocity > 0){
-                moveVelocity--;
-            }
-        }
-        //actually move
-        if(canMove){
-            GetComponent<Rigidbody> ().velocity = new Vector2 (moveVelocity, GetComponent<Rigidbody> ().velocity.y);
-        }
+        counter  = 0;
     }
+}
+private void Move (){
+    // code take it from youtube
+    isGrounded = Physics.CheckSphere(transform.position, groundCheckDistance, groundMask);
 
-    //Check if Grounded
-     public void isGroundedUpdate() {
-        if(Physics.Raycast(transform.position, -Vector3.up, distToGround+ 0.01f)){
-            isGrounded = true;
-            numJumped = 0;
-        }
-        else{
-            isGrounded = false;
-        }
+    if((isGrounded && velocity.y < 0)){
+        velocity.y = -2f;
     }
-    //Collision check/Distance to ground check, to play Landing Sound
-    void OnCollisionEnter (Collision col)
+    
+
+
+     float moveZ = Input.GetAxis("Horizontal");
+     moveDirection = new Vector3(moveZ,0 , 0);
+
+     if(isGrounded){
+        if ( moveDirection != Vector3.zero && !Input.GetKey("left")){
+         //walking
+         Walk();
+     }
+     else if ( moveDirection != Vector3.zero && !Input.GetKey("right")){
+         Walk();
+         
+     }
+     else if ( moveDirection != Vector3.zero && !Input.GetKey("right") && Input.GetKey(KeyCode.Space)){
+         Jump();
+         counter++;
+     }
+      else if ( moveDirection != Vector3.zero && !Input.GetKey("left") && Input.GetKey(KeyCode.Space)){
+         Jump();
+         counter++;
+     }
+     else if (moveDirection != Vector3.zero && Input.GetKey("left")){
+         // Running
+         Run();
+
+     }
+     if (moveDirection != Vector3.zero && Input.GetKey("left") && Input.GetKey(KeyCode.Space)){
+         // Running
+         Jump();
+         counter++;
+
+     }
+     else if (moveDirection == Vector3.zero){
+         //Idle
+         Idle();
+     }
+     moveDirection *= walkSpeed;
+     if(Input.GetKey(KeyCode.Space)){
+         Jump();
+         counter++;
+     }
+     }
+    
+
+     
+// take it from youtube
+     moveDirection *= moveSpeed;
+
+     controller.Move(moveDirection * Time.deltaTime);
+
+     velocity.y += gravity * Time.deltaTime;
+     controller.Move(velocity * Time.deltaTime);
+//
+}
+private void Idle(){
+ anim.SetFloat("Speed",1);
+}
+private void Walk(){
+    moveSpeed = walkSpeed;
+    
+      if (Input.GetKey("right"))
     {
-        if (col.gameObject.name == "Ground" && distToGround > 0.1){
-            GetComponent<AudioSource>().clip = landSound;
-            GetComponent<AudioSource>().Play();
-        }
-        
+        anim.SetFloat("Speed",0.6666667f,0.1f, Time.deltaTime);
+        // transform.position += Vector3.right * Speed * Time.deltaTime;
+        this.gameObject.transform.rotation = Quaternion.Euler(0f,90f,0f);
     }
-    
-    
+    else if (Input.GetKey("left"))
+    {
+        anim.SetFloat("Speed",0.6666667f,0.1f, Time.deltaTime);
+        // transform.position += Vector3.left * Speed * Time.deltaTime;
+        this.gameObject.transform.rotation = Quaternion.Euler(0f,270f,0f);
+    }
+}
+private void Run(){
+    moveSpeed = runSpeed;
+    anim.SetFloat("Speed",0.3333333f,0.1f, Time.deltaTime);
+}
+private void Jump(){
+    if ( counter> 2){
+     jumpHeight = jumpHeight*2;
+     velocity.y = Mathf.Sqrt(jumpHeight * -4 *  gravity);
+    anim.SetFloat("Speed",0f);   
+    }
+    velocity.y = Mathf.Sqrt(jumpHeight * -2 *  gravity);
+    anim.SetFloat("Speed",0f);
+}
+private void Attack (){
+    anim.SetTrigger("Attack");
+}
+private void Jump2 (){
+    anim.SetTrigger("Jump");
+}
+
 }

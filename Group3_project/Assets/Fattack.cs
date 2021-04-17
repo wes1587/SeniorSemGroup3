@@ -19,7 +19,7 @@ public class Fattack : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             GetComponent<AudioSource>().clip = fireBallSound;
             GetComponent<AudioSource>().Play();
