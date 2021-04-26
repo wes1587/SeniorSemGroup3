@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HealthBarPlayer : MonoBehaviour
 {
-
+    public GameObject player;
     public int maxHealth = 100;
     public int currentHealth;
     public HealthBarScript healthbar;
@@ -20,17 +20,22 @@ public class HealthBarPlayer : MonoBehaviour
     void Update()
     {
         //test to see if bar goes down
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.J))
         {
-            Damage(20);
-        }
-           
-        
+            TakeDamage(20);
+        }   
     }
 
-    void Damage(int damage)
+    public void TakeDamage (int damage)
     {
         currentHealth -= damage;
         healthbar.SetHealth(currentHealth);
+
+        if(currentHealth <= 0)
+        {
+            player.transform.position = new Vector3(-8,1,5);
+            currentHealth = maxHealth;
+            healthbar.SetMaxHealth(maxHealth);
+        }
     }
 }

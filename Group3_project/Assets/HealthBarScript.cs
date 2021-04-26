@@ -12,7 +12,6 @@ public class HealthBarScript : MonoBehaviour
 
 
     public void SetHealth(int health)
-
     {
         slider.value = health;
 
@@ -21,7 +20,6 @@ public class HealthBarScript : MonoBehaviour
     }
 
     public void SetMaxHealth(int health)
-
     {
         slider.maxValue = health; //
         slider.value = health; // because slider needs to start at max value (full life)

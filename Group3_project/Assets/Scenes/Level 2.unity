@@ -3921,7 +3921,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 464793079}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &464793072 stripped
 GameObject:
@@ -3955,15 +3955,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 464793072}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff8ce9de7bf2240c89eaf7053872d3c2, type: 3}
+  m_Script: {fileID: 11500000, guid: 4a4a15bdec782664aa3131525b09f473, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   runSpeed: 20
   walkSpeed: 4
+  grounded: 0
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
-  groundCheck: {fileID: 1125222576}
+  groundCheck: {fileID: 0}
   jumpHeight: 700
 --- !u!95 &464793075
 Animator:
@@ -4004,7 +4005,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 67.62627
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -7057,7 +7058,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: a5ed8a7031d36447289b76a49d5c2b3e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.19
+      value: 27.2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a5ed8a7031d36447289b76a49d5c2b3e,
         type: 3}
@@ -9379,36 +9380,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1113833340}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1125222575
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1125222576}
-  m_Layer: 0
-  m_Name: groundCheck
-  m_TagString: Untagged
-  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1125222576
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1125222575}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 464793079}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1140843627
 GameObject:
   m_ObjectHideFlags: 0
@@ -13369,7 +13340,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50750f1e00906c040ac48cb54e8ee7f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 464793072}
   death1: {fileID: 8300000, guid: 5b385f38505b43541912f651a55eac20, type: 3}
   death2: {fileID: 8300000, guid: 193ba3a9650a8f1468c08a8522fc0944, type: 3}
   audioList: []
@@ -15558,7 +15529,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2057541076}
   m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalPosition: {x: 0, y: 0.40000153, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
