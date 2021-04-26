@@ -895,17 +895,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 118b7fa16ffd04aae9d8ad8269bedc03,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -95
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 118b7fa16ffd04aae9d8ad8269bedc03,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.78
+      value: -1.2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 118b7fa16ffd04aae9d8ad8269bedc03,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.28
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 118b7fa16ffd04aae9d8ad8269bedc03,
         type: 3}
@@ -4743,9 +4743,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f63982ba54f86400aa5104b0b577a4d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chaseRange: 5
+  chaseRange: 12
   animator: {fileID: 667487877}
-  speed: 3
+  speed: 6
 --- !u!95 &667487877
 Animator:
   serializedVersion: 3
@@ -5922,6 +5922,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: player
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a5ed8a7031d36447289b76a49d5c2b3e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5ed8a7031d36447289b76a49d5c2b3e, type: 3}
