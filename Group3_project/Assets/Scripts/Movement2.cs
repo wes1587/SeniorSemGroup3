@@ -16,13 +16,15 @@ public class Movement2 : MonoBehaviour{
     bool facingRight;
     // for jumping
     bool isGrounded = true;
-    public bool grounded = false;
     Collider[] groundCollisions;
     float groundCheckRadius = 0.2f;
     public LayerMask groundLayer;
     public Transform groundCheck;
     public float jumpHeight;
     bool canDoubleJump;
+    //controll Script 
+    public bool canMove;
+    
     //Audio
      AudioClip jumpSound;
      AudioClip landSound;
@@ -49,96 +51,97 @@ public class Movement2 : MonoBehaviour{
     // Update is called once per frame
     void Update()
     {
-        //checkGround.transform.position = rightFoot.transform.position;
-        isGroundedUpdate();
+        if (Input.GetKeyDown(KeyCode.F)){
+            canMove = !canMove;
+        }
     }
-
 
     // when working with physics is better to use this method
     void FixedUpdate()
     {
 
-        if (isGrounded)
-        {
-            canDoubleJump = true;
-        }
-        else
-        {
-
-
-        }
-        if (Input.GetKey(KeyCode.Space))
-        {
+        if(canMove){
             if (isGrounded)
             {
-                isGrounded = false;
-                GetComponent<AudioSource>().clip = jumpSound;
-                GetComponent<AudioSource>().Play();
-                myAnim.SetBool("grounded", isGrounded);
-                myRB.AddForce(new Vector3(0, jumpHeight, 0));
-
-
+                canDoubleJump = true;
             }
             else
             {
 
-                if (Input.GetKeyDown(KeyCode.Space))
+
+            }
+            if (Input.GetKey(KeyCode.Space))
+            {
+                if (isGrounded)
                 {
-                    if (canDoubleJump)
-                    {
-                        isGrounded = false;
-                        GetComponent<AudioSource>().clip = jumpSound;
-                        GetComponent<AudioSource>().Play();
-                        myAnim.SetBool("grounded", isGrounded);
-                        myRB.AddForce(new Vector3(0, jumpHeight, 0));
-                        canDoubleJump = false;
-                    }
+                    isGrounded = false;
+                    GetComponent<AudioSource>().clip = jumpSound;
+                    GetComponent<AudioSource>().Play();
+                    myAnim.SetBool("grounded", isGrounded);
+                    myRB.AddForce(new Vector3(0, jumpHeight, 0));
+
 
                 }
+                else
+                {
+
+                    if (Input.GetKeyDown(KeyCode.Space))
+                    {
+                        if (canDoubleJump)
+                        {
+                            isGrounded = false;
+                            GetComponent<AudioSource>().clip = jumpSound;
+                            GetComponent<AudioSource>().Play();
+                            myAnim.SetBool("grounded", isGrounded);
+                            myRB.AddForce(new Vector3(0, jumpHeight, 0));
+                            canDoubleJump = false;
+                        }
+
+                    }
+                }
+
             }
 
+
+            groundCollisions = Physics.OverlapSphere(groundCheck.position, groundCheckRadius, groundLayer);
+            if (groundCollisions.Length > 0)
+            {
+                isGrounded = true;
+            }
+            else
+            {
+                isGrounded = false;
+            }
+            myAnim.SetBool("grounded", isGrounded);
+
+
+
+
+            float move = Input.GetAxis("Horizontal");
+            myAnim.SetFloat("speed", Mathf.Abs(move));
+
+
+            float sneaking = Input.GetAxisRaw("Fire3");
+            myAnim.SetFloat("sneaking", sneaking);
+
+            if (sneaking > 0)
+            {
+                myRB.velocity = new Vector3(move * walkSpeed, myRB.velocity.y, 0);
+            }
+            else
+            {
+                myRB.velocity = new Vector3(move * runSpeed, myRB.velocity.y, 0);
+            }
+
+            if (move > 0 && !facingRight)
+            {
+                Flip();
+            }
+            else if (move < 0 && facingRight)
+            {
+                Flip();
+            }
         }
-
-
-        // groundCollisions = Physics.OverlapSphere(groundCheck.position, groundCheckRadius, groundLayer);
-        // if (groundCollisions.Length > 0)
-        // {
-        //     isGrounded = true;
-        // }
-        // else
-        // {
-        //     isGrounded = false;
-        // }
-        myAnim.SetBool("grounded", isGrounded);
-
-
-
-
-        float move = Input.GetAxis("Horizontal");
-        myAnim.SetFloat("speed", Mathf.Abs(move));
-
-
-        float sneaking = Input.GetAxisRaw("Fire3");
-        myAnim.SetFloat("sneaking", sneaking);
-
-        if (sneaking > 0)
-        {
-            myRB.velocity = new Vector3(move * walkSpeed, myRB.velocity.y, 0);
-        }
-        else
-        {
-            myRB.velocity = new Vector3(move * runSpeed, myRB.velocity.y, 0);
-        }
-
-        if (move > 0 && !facingRight)
-        {
-            Flip();
-        }
-        else if (move < 0 && facingRight)
-        {
-            Flip();
-        }
-
     }
     void Flip()
     {
