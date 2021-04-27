@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 ﻿{"cameraMode":{"drawMode":0,"name":"Shaded","section":"Shading Mode"},"sceneLighting":true,"audioPlay":false,"sceneViewState":{"showFog":true,"showMaterialUpdate":false,"showSkybox":true,"showFlares":true,"showImageEffects":true,"showParticleSystems":true},"in2DMode":false,"pivot":{"x":96.8835220336914,"y":3.765209197998047,"z":8.556488037109375},"rotation":{"x":0.12254910916090012,"y":-0.047619592398405078,"z":0.005889737047255039,"w":0.9913058280944824},"size":50.31513977050781,"orthographic":false}
+=======
+﻿{"cameraMode":{"drawMode":0,"name":"Shaded","section":"Shading Mode"},"sceneLighting":true,"audioPlay":false,"sceneViewState":{"showFog":true,"showMaterialUpdate":false,"showSkybox":true,"showFlares":true,"showImageEffects":true,"showParticleSystems":true},"in2DMode":false,"pivot":{"x":330.0107421875,"y":-0.15658855438232423,"z":30.014755249023439},"rotation":{"x":0.12254910916090012,"y":-0.047619592398405078,"z":0.005889737047255039,"w":0.9913058280944824},"size":31.47301483154297,"orthographic":false}
+>>>>>>> Wes
