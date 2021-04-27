@@ -27,15 +27,20 @@ public class Fattack : MonoBehaviour
         }
     }
 
-    //void OnTriggerEnter(Collider hitInfo)
-    //{
-    //    Enemy enemy = hitInfo.GetComponent<Enemy>();
-    //    if (enemy != null)
-    //    {
-    //        enemy.TakeDamage(damage);
-    //    }
-    //    Destroy(gameObject);
-    //}
+    void OnTriggerEnter(Collider hitInfo)
+    {
+        //Enemy enemy = hitInfo.GetComponent<Enemy>();
+        //if (enemy != null)
+        //{
+        //    enemy.TakeDamage(damage);
+        //}
+        //Destroy(gameObject);
+        if (hitInfo.tag == "Enemy")
+        {
+            hitInfo.GetComponent<enemy2>().TakeDamage(damage);
+            Destroy(gameObject);
+        }
+    }
 
     public void Fthrow()
     {
