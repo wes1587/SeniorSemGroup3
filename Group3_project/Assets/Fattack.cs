@@ -5,6 +5,7 @@ using UnityEngine;
 public class Fattack : MonoBehaviour
 {
     public GameObject fireBall;
+    public bool lookingRight;
     public Transform fireBallPos;
     public float fireBallSpeed = 600;
     public int damage = 10;
@@ -25,24 +26,31 @@ public class Fattack : MonoBehaviour
             GetComponent<AudioSource>().Play();
             Fthrow();
         }
-    }
 
-    //void OnTriggerEnter(Collider hitInfo)
-    //{
-    //    Enemy enemy = hitInfo.GetComponent<Enemy>();
-    //    if (enemy != null)
-    //    {
-    //        enemy.TakeDamage(damage);
-    //    }
-    //    Destroy(gameObject);
-    //}
+        if (Input.GetKey(KeyCode.A))
+        {
+            lookingRight = false;
+        }
+
+        if (Input.GetKey(KeyCode.D))
+        {
+            lookingRight = true;
+        }
+    }
 
     public void Fthrow()
     {
+        if (lookingRight)
         {
-
             GameObject Fball = Instantiate(fireBall, fireBallPos.position, Quaternion.Euler(0, 0, -90));
-            Fball.GetComponent<Rigidbody>().AddForce(fireBallPos.forward * fireBallSpeed);
+            Fball.GetComponent<Rigidbody>().AddForce(fireBallPos.right * fireBallSpeed);
+            Destroy(Fball, 3);
+        }
+
+        if (!lookingRight)
+        {
+            GameObject Fball = Instantiate(fireBall, fireBallPos.position, Quaternion.Euler(0, 0, 90));
+            Fball.GetComponent<Rigidbody>().AddForce(fireBallPos.right * fireBallSpeed);
             Destroy(Fball, 3);
         }
     }
