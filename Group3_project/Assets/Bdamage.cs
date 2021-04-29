@@ -5,10 +5,11 @@ using UnityEngine;
 public class Bdamage : MonoBehaviour
 {
     public int damage = 40;
+    
 
     void Start()
     {
-
+        
     }
 
     void OnTriggerEnter(Collider hitInfo)
@@ -18,6 +19,7 @@ public class Bdamage : MonoBehaviour
         {
             enemy.TakeDamage(damage);
         }
+        
         Destroy(gameObject);
     }
 
