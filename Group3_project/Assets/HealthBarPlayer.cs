@@ -38,4 +38,13 @@ public class HealthBarPlayer : MonoBehaviour
             healthbar.SetMaxHealth(maxHealth);
         }
     }
+
+    void OnCollisionEnter(Collision col)
+    {
+        if (col.gameObject.name == "Boulder")
+        {
+            TakeDamage(20);
+        }
+
+    }
 }

@@ -29,7 +29,8 @@ public class DeathZone : MonoBehaviour
             GetComponent<AudioSource>().clip = death2;
             GetComponent<AudioSource>().Play();
         }
-            
+        HealthBarPlayer HBP = player.GetComponent<HealthBarPlayer>();
+        HBP.TakeDamage(100);
         player.transform.position = new Vector3(-8,1,5);
     }
 }
