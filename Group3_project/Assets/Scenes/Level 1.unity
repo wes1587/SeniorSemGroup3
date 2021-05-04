@@ -4289,7 +4289,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50750f1e00906c040ac48cb54e8ee7f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1568186185}
+  player: {fileID: 687222766}
   death1: {fileID: 8300000, guid: 5b385f38505b43541912f651a55eac20, type: 3}
   death2: {fileID: 8300000, guid: 193ba3a9650a8f1468c08a8522fc0944, type: 3}
   audioList: []
@@ -5088,6 +5088,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &678979084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 678979080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70382073f3d6af343ac4474ce275304d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 20
 --- !u!1 &687222766 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a5ed8a7031d36447289b76a49d5c2b3e,
@@ -8266,7 +8279,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50750f1e00906c040ac48cb54e8ee7f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1568186185}
+  player: {fileID: 687222766}
   death1: {fileID: 8300000, guid: 5b385f38505b43541912f651a55eac20, type: 3}
   death2: {fileID: 8300000, guid: 193ba3a9650a8f1468c08a8522fc0944, type: 3}
   audioList: []
@@ -11165,7 +11178,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50750f1e00906c040ac48cb54e8ee7f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1568186185}
+  player: {fileID: 687222766}
   death1: {fileID: 8300000, guid: 5b385f38505b43541912f651a55eac20, type: 3}
   death2: {fileID: 8300000, guid: 193ba3a9650a8f1468c08a8522fc0944, type: 3}
   audioList: []

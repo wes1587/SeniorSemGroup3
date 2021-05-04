@@ -54,11 +54,6 @@ public class Movement2 : MonoBehaviour{
         if (Input.GetKeyDown(KeyCode.F)){
             canMove = !canMove;
         }
-    }
-
-    // when working with physics is better to use this method
-    void FixedUpdate()
-    {
 
         if(canMove){
             if (isGrounded)
@@ -66,7 +61,7 @@ public class Movement2 : MonoBehaviour{
                 canDoubleJump = true;
             }
 
-            if (Input.GetKey(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space))
             {
                 if (isGrounded)
                 {
@@ -125,6 +120,11 @@ public class Movement2 : MonoBehaviour{
                 Flip();
             }
         }
+    }
+
+    // when working with physics is better to use this method
+    void FixedUpdate()
+    {
     }
 
     void Flip(){

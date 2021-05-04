@@ -4479,7 +4479,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   groundCheck: {fileID: 1730129944}
-  jumpHeight: 700
+  jumpHeight: 1500
   canMove: 1
 --- !u!95 &464793075
 Animator:
