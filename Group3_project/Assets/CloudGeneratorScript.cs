@@ -37,7 +37,7 @@ public class CloudGeneratorScript : MonoBehaviour
 
 
         //random the y position of clouds so it will look more natural
-        float startY = UnityEngine.Random.Range(startPos.y - 2f, startPos.y + 2);
+        float startY = UnityEngine.Random.Range(startPos.y - 8f, startPos.y + 8);
         cloud.transform.position = new Vector3(startPos.x,startY,startPos.z);
 
         //random the size of the clouds
