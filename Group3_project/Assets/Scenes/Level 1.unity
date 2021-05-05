@@ -221,7 +221,7 @@ GameObject:
   - component: {fileID: 27464075}
   - component: {fileID: 27464074}
   m_Layer: 8
-  m_Name: Hill 5 (1)
+  m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -525,7 +525,7 @@ GameObject:
   - component: {fileID: 31577350}
   - component: {fileID: 31577349}
   m_Layer: 8
-  m_Name: Platform 3 (8)
+  m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -705,7 +705,7 @@ GameObject:
   - component: {fileID: 65482762}
   - component: {fileID: 65482761}
   m_Layer: 8
-  m_Name: Hill 3 (1)
+  m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1589,7 +1589,7 @@ GameObject:
   - component: {fileID: 136393631}
   - component: {fileID: 136393630}
   m_Layer: 8
-  m_Name: Platform 3 (3)
+  m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1682,7 +1682,7 @@ GameObject:
   - component: {fileID: 141188972}
   - component: {fileID: 141188971}
   m_Layer: 8
-  m_Name: Platform 3 (10)
+  m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2358,7 +2358,7 @@ GameObject:
   - component: {fileID: 293504998}
   - component: {fileID: 293504997}
   m_Layer: 8
-  m_Name: Platform 2
+  m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2538,7 +2538,7 @@ GameObject:
   - component: {fileID: 319635944}
   - component: {fileID: 319635943}
   m_Layer: 8
-  m_Name: Platform 3
+  m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3089,7 +3089,7 @@ GameObject:
   - component: {fileID: 427741282}
   - component: {fileID: 427741281}
   m_Layer: 8
-  m_Name: Hill 6
+  m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3188,7 +3188,7 @@ GameObject:
   - component: {fileID: 432603017}
   - component: {fileID: 432603016}
   m_Layer: 8
-  m_Name: Hill 1
+  m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3508,7 +3508,7 @@ GameObject:
   - component: {fileID: 459065782}
   - component: {fileID: 459065781}
   m_Layer: 8
-  m_Name: Hill 6 (12)
+  m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3990,7 +3990,7 @@ GameObject:
   - component: {fileID: 532137341}
   - component: {fileID: 532137340}
   m_Layer: 8
-  m_Name: Platform 1 (1)
+  m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5783,7 +5783,7 @@ GameObject:
   - component: {fileID: 807555838}
   - component: {fileID: 807555837}
   m_Layer: 8
-  m_Name: Hill 6 (13)
+  m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6370,7 +6370,7 @@ GameObject:
   - component: {fileID: 922430340}
   - component: {fileID: 922430339}
   m_Layer: 8
-  m_Name: Platform 3 (5)
+  m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6463,7 +6463,7 @@ GameObject:
   - component: {fileID: 929768664}
   - component: {fileID: 929768663}
   m_Layer: 8
-  m_Name: Platform 1
+  m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6556,7 +6556,7 @@ GameObject:
   - component: {fileID: 953819154}
   - component: {fileID: 953819153}
   m_Layer: 8
-  m_Name: Platform 3 (1)
+  m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7340,7 +7340,7 @@ GameObject:
   - component: {fileID: 1011153687}
   - component: {fileID: 1011153686}
   m_Layer: 8
-  m_Name: Hill 6 (2)
+  m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7571,7 +7571,7 @@ GameObject:
   - component: {fileID: 1046458374}
   - component: {fileID: 1046458373}
   m_Layer: 8
-  m_Name: Hill 6 (10)
+  m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7664,7 +7664,7 @@ GameObject:
   - component: {fileID: 1059932354}
   - component: {fileID: 1059932353}
   m_Layer: 8
-  m_Name: Hill 5 (2)
+  m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10757,7 +10757,7 @@ GameObject:
   - component: {fileID: 1416888895}
   - component: {fileID: 1416888894}
   m_Layer: 8
-  m_Name: Hill 6 (1)
+  m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13057,7 +13057,7 @@ GameObject:
   - component: {fileID: 1761078461}
   - component: {fileID: 1761078460}
   m_Layer: 8
-  m_Name: Platform 3 (4)
+  m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13421,7 +13421,7 @@ GameObject:
   - component: {fileID: 1795592342}
   - component: {fileID: 1795592341}
   m_Layer: 8
-  m_Name: Hill 4
+  m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13619,7 +13619,7 @@ GameObject:
   - component: {fileID: 1815736435}
   - component: {fileID: 1815736434}
   m_Layer: 8
-  m_Name: Hill 3
+  m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13712,7 +13712,7 @@ GameObject:
   - component: {fileID: 1823666511}
   - component: {fileID: 1823666510}
   m_Layer: 8
-  m_Name: Hill 2
+  m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14190,7 +14190,7 @@ GameObject:
   - component: {fileID: 1844348678}
   - component: {fileID: 1844348677}
   m_Layer: 8
-  m_Name: Hill 5
+  m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14382,7 +14382,7 @@ GameObject:
   - component: {fileID: 1886537781}
   - component: {fileID: 1886537780}
   m_Layer: 8
-  m_Name: Platform 3 (6)
+  m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
