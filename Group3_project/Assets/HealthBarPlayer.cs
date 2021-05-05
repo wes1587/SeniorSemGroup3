@@ -46,5 +46,9 @@ public class HealthBarPlayer : MonoBehaviour
             TakeDamage(20);
         }
 
+        if (col.gameObject.tag == "Enemy")
+        {
+            TakeDamage(20);
+        }
     }
 }

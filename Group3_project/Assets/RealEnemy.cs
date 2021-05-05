@@ -81,9 +81,9 @@ public class RealEnemy : MonoBehaviour
         // play a die animation
         //disable the script and the collider
         animator.SetTrigger("isDead");
-        //GetComponent<CapsuleCollider>().enabled = false;
         this.enabled = false;
         GetComponent<CapsuleCollider>().enabled = false;
         GetComponent<Rigidbody>().useGravity = false;
+        transform.Translate(0,0,0);
     }
 }
