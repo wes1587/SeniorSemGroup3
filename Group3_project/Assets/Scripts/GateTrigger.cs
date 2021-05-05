@@ -4,22 +4,23 @@ using UnityEngine;
 
 public class GateTrigger : MonoBehaviour
 {
-    
+    public AudioSource audio;
     [SerializeField]
     GameObject gate;
 
     bool isOpen = false;
 
-    void start()
+    void Start()
     {
-        AudioSource audio = GetComponent<AudioSource>();
-}
+        audio = GetComponent<AudioSource>();
+    }
+
     void OnTriggerEnter(Collider col)
     {
         if (!isOpen)
         {
             isOpen = true;
-            GetComponent<AudioSource>().Play();
+            audio.Play();
             gate.transform.position += new Vector3(0, -12, 0);
         }
 
@@ -29,7 +30,7 @@ public class GateTrigger : MonoBehaviour
         if (isOpen)
         {
             isOpen = false;
-            GetComponent<AudioSource>().Play();
+            audio.Play();
             gate.transform.position += new Vector3(0, 12, 0);
         }
     }
