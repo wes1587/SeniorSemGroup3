@@ -18,7 +18,5 @@ public class Battack : MonoBehaviour
         {
             HBP.TakeDamage(20);
         }
-        Destroy(gameObject);
     }
-
 }

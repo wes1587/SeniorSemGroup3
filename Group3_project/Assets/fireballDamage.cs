@@ -19,6 +19,14 @@ public class fireballDamage : MonoBehaviour
             enemy.TakeDamage(damage);
         }
         Destroy(gameObject);
+
+        Enemy boss = hitInfo.GetComponent<Enemy>();
+        if (boss != null)
+        {
+            boss.TakeDamage(damage);
+        }
+        Destroy(gameObject);
     }
+
 
 }

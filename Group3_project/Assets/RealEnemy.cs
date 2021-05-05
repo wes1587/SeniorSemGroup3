@@ -39,7 +39,6 @@ public class RealEnemy : MonoBehaviour
         {
             // play the run animation
             animator.SetTrigger("chase");
-            animator.SetBool("isAttacking", false);
 
             if (distance < attackRange)
             {
@@ -60,14 +59,13 @@ public class RealEnemy : MonoBehaviour
                 transform.rotation = Quaternion.Euler(0, -90, 0);
             }
         }
-        // else if ( currentState == "AttackState")
-        // {
-        //     animator.SetBool("isAttacking", true);
-        //     if ( distance > attackRange)
-        //     {
-        //         currentState = "ChaseState";
-        //     }
-        // }
+        else if ( currentState == "AttackState")
+        {
+            if ( distance > attackRange)
+            {
+                currentState = "ChaseState";
+            }
+        }
     }
 
     public void TakeDamage(int damage)
@@ -88,10 +86,4 @@ public class RealEnemy : MonoBehaviour
         GetComponent<CapsuleCollider>().enabled = false;
         GetComponent<Rigidbody>().useGravity = false;
     }
-
-//     void OnCollisionEnter(Collision collision) {
-     
-       
-//  }
-
 }
