@@ -13,7 +13,7 @@ public class fireballDamage : MonoBehaviour
 
     void OnTriggerEnter(Collider hitInfo)
     {
-        Enemy enemy = hitInfo.GetComponent<Enemy>();
+        RealEnemy enemy = hitInfo.GetComponent<RealEnemy>();
         if (enemy != null)
         {
             enemy.TakeDamage(damage);
