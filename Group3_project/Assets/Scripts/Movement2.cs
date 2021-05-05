@@ -54,23 +54,14 @@ public class Movement2 : MonoBehaviour{
         if (Input.GetKeyDown(KeyCode.F)){
             canMove = !canMove;
         }
-    }
-
-    // when working with physics is better to use this method
-    void FixedUpdate()
-    {
 
         if(canMove){
             if (isGrounded)
             {
                 canDoubleJump = true;
             }
-            else
-            {
 
-
-            }
-            if (Input.GetKey(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space))
             {
                 if (isGrounded)
                 {
@@ -102,24 +93,11 @@ public class Movement2 : MonoBehaviour{
 
             }
 
-
-            groundCollisions = Physics.OverlapSphere(groundCheck.position, groundCheckRadius, groundLayer);
-            if (groundCollisions.Length > 0)
-            {
-                isGrounded = true;
-            }
-            else
-            {
-                isGrounded = false;
-            }
+            isGroundedUpdate();
             myAnim.SetBool("grounded", isGrounded);
-
-
-
 
             float move = Input.GetAxis("Horizontal");
             myAnim.SetFloat("speed", Mathf.Abs(move));
-
 
             float sneaking = Input.GetAxisRaw("Fire3");
             myAnim.SetFloat("sneaking", sneaking);
@@ -143,8 +121,13 @@ public class Movement2 : MonoBehaviour{
             }
         }
     }
-    void Flip()
+
+    // when working with physics is better to use this method
+    void FixedUpdate()
     {
+    }
+
+    void Flip(){
         facingRight = !facingRight;
         Vector3 theScale = transform.localScale;
         theScale.z *= -1;
@@ -152,9 +135,8 @@ public class Movement2 : MonoBehaviour{
 
     }
 
-    public void isGroundedUpdate()
-    {
-        if (Physics.Raycast(transform.position, -Vector3.up, distToGround + 0.2f))
+    public void isGroundedUpdate(){
+        if (Physics.Raycast(transform.position, Vector3.down, distToGround + 0.2f))
         {
             isGrounded = true;
         }
